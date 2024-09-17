@@ -1,0 +1,10 @@
+<div *ngIf="billingHistory.length === 0">
+  <p>No billing history available.</p>
+</div>
+
+<ul>
+  <li *ngFor="let item of billingHistory">
+    <span>{{ item.date }} - {{ item.amount | currency }}</span>
+    <button (click)="viewDetails(item.id)">View Details</button>
+  </li>
+</ul>
