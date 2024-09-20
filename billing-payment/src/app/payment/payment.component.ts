@@ -17,9 +17,10 @@ export class PaymentComponent {
   ) {}
 
   payWithRazorpay() {
-    this.paymentService
-      .createOrder(50000) // Replace 50000 with the actual amount in paisa
-      .subscribe((order: any) => {
+    const amountInPaisa = 50000; // Example amount in paisa (500 INR)
+
+    this.paymentService.createOrder(amountInPaisa).subscribe({
+      next: (order: any) => {
         const options = {
           key: order.razorpayKey,
           amount: order.amount,
@@ -42,20 +43,29 @@ export class PaymentComponent {
 
         const rzp = new Razorpay(options);
         rzp.open();
-      });
+      },
+      error: (error) => {
+        console.error('Order creation failed:', error);
+        alert('Failed to create order. Please try again.');
+      },
+    });
   }
 
   verifyPayment(paymentResponse: any) {
-    this.paymentService
-      .verifyPayment(paymentResponse)
-      .subscribe((response: any) => {
+    this.paymentService.verifyPayment(paymentResponse).subscribe({
+      next: (response: any) => {
         if (response.status === 'success') {
           this.openSuccessModal(response); // Open the success modal with payment details
-          this.sendReceipt(paymentResponse);
+          this.sendReceipt(paymentResponse); // Send the receipt
         } else {
           alert('Payment Verification Failed!');
         }
-      });
+      },
+      error: (error) => {
+        console.error('Payment verification failed:', error);
+        alert('Error verifying payment. Please contact support.');
+      },
+    });
   }
 
   openSuccessModal(paymentDetails: any) {
@@ -63,18 +73,24 @@ export class PaymentComponent {
       data: paymentDetails, // Pass the payment details to the modal
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
+      // Here you can perform additional actions if needed
     });
   }
 
   sendReceipt(paymentResponse: any) {
-    this.paymentService
-      .sendReceipt(paymentResponse)
-      .subscribe((response: any) => {
+    this.paymentService.sendReceipt(paymentResponse).subscribe({
+      next: (response: any) => {
         if (response.status === 'success') {
           console.log('Receipt sent to email!');
+        } else {
+          console.warn('Failed to send receipt:', response.message);
         }
-      });
+      },
+      error: (error) => {
+        console.error('Error sending receipt:', error);
+      },
+    });
   }
 }

@@ -1,4 +1,19 @@
-<div class="center-text">
-  <h1>Welcome to the Parking Space Finder!</h1>
-  <app-payment></app-payment>
-</div>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon> <!-- Menu icon -->
+  </button>
+  <span>Parking Space Finder</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #drawer class="sidenav" mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content">
+      <h1>Welcome to the Parking Space Finder!</h1>
+      <app-payment></app-payment>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
