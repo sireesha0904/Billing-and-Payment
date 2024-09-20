@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PaymentComponent } from './payment/payment.component'; // Import your PaymentComponent
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { PaymentComponent } from './payment/payment.component';
+import { UserService } from './user.service'; // Ensure you have this service
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaymentComponent, // Declare your PaymentComponent here
+    PaymentComponent, // Add other components as needed
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, // Import HttpClientModule
     AppRoutingModule,
-    HttpClientModule, // Add HttpClientModule here
   ],
   providers: [
-    provideHttpClient(), // Add this line to enable fetch
+    UserService, // Provide your user service
   ],
   bootstrap: [AppComponent],
 })
