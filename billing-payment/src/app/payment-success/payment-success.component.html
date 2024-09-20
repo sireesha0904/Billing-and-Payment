@@ -1,0 +1,9 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your payment.</p>
+    <p><strong>Amount Paid:</strong> {{ paymentDetails.amount }} INR</p>
+    <p><strong>Transaction ID:</strong> {{ paymentDetails.id }}</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

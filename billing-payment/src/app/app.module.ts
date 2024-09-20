@@ -4,12 +4,15 @@ import { AppComponent } from './app.component';
 import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialog } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, PaymentComponent, PaymentSuccessComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, ],
   providers: [
-    provideHttpClient(), // Remove withFetch()
+    provideHttpClient(),
+    provideAnimationsAsync(), // Remove withFetch()
   ],
   bootstrap: [AppComponent],
 })
