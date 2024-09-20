@@ -1,19 +1,17 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [
-      "node"
-    ]
+    "types": [] // You can also add specific types here if needed
   },
   "files": [
+    "src/polyfills.ts",
     "src/main.ts",
-    "src/main.server.ts",
-    "server.ts"
+    "src/app/app.module.ts",
+    "src/app/app.component.ts"
   ],
-  "include": [
-    "src/**/*.d.ts"
+  "include": ["src/**/*.d.ts", "src/**/*.ts"],
+  "exclude": [
+    "node_modules" // Make sure to exclude node_modules
   ]
 }

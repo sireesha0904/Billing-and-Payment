@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaymentComponent } from './payment/payment.component';
-import { UserService } from './user.service'; // Ensure you have this service
+import { UserService } from './user.service';
+import { RouterModule } from '@angular/router'; // Import RouterModule
 
 @NgModule({
   declarations: [
@@ -13,12 +14,11 @@ import { UserService } from './user.service'; // Ensure you have this service
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, // Import HttpClientModule
+    HttpClientModule,
     AppRoutingModule,
+    RouterModule, // Add RouterModule here
   ],
-  providers: [
-    UserService, // Provide your user service
-  ],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
