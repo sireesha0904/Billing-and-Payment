@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaymentComponent } from './payment/payment.component';
-import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { UserService } from './user.service'; // Ensure you have this service
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaymentComponent,
-    PaymentSuccessComponent
+    PaymentComponent, // Add other components as needed
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule, // Import HttpClientModule
+    AppRoutingModule,
   ],
   providers: [
-    provideClientHydration()
+    UserService, // Provide your user service
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
