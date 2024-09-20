@@ -1,23 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaymentComponent } from './payment/payment.component';
-import { UserService } from './user.service'; // Ensure you have this service
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PaymentComponent, // Add other components as needed
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule, // Import HttpClientModule
-    AppRoutingModule,
-  ],
+  declarations: [AppComponent, PaymentComponent, PaymentSuccessComponent],
+  imports: [BrowserModule, HttpClientModule],
   providers: [
-    UserService, // Provide your user service
+    provideHttpClient(), // Remove withFetch()
   ],
   bootstrap: [AppComponent],
 })
