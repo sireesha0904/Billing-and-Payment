@@ -1,0 +1,6 @@
+<h3>Past Transactions</h3>
+<ul>
+  <li *ngFor="let transaction of transactions">
+    {{transaction.id}} - {{transaction.amount}} - {{transaction.status}}
+  </li>
+</ul>
