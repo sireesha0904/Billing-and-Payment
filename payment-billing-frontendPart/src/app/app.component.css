@@ -1,0 +1,10 @@
+.main-content {
+  margin-left: 250px; /* Offset for sidebar */
+  padding: 20px; /* Spacing for content */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Remove margin for mobile */
+  }
+}
