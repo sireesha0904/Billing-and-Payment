@@ -1,10 +1,17 @@
 .sidebar {
-  width: 250px;  /* Set a fixed width */
+  width: 0;  /* Start closed */
   background-color: #f4f4f4;
   padding: 20px;
-  position: fixed;  /* Make it fixed */
-  height: 100%;  /* Full height */
-  overflow-y: auto;  /* Scrollable if necessary */
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  transition: width 0.3s;  /* Smooth transition for width */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);  /* Optional shadow */
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.sidebar.open {
+  width: 250px;  /* Width when open */
 }
 
 .toggle-button {
@@ -16,5 +23,5 @@
 }
 
 .toggle-button i {
-  margin-right: 5px;
+  margin-right: 5px;  /* Space between icon and text */
 }
