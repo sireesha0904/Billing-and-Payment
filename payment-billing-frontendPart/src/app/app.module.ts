@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Required for ngModel
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -9,13 +10,15 @@ import { PaymentComponent } from './components/payment/payment.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    PaymentComponent, // Include the PaymentComponent here
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule, // Include FormsModule
+    AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    provideClientHydration()
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

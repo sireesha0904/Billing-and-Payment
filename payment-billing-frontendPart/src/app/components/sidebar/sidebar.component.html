@@ -1,17 +1,1 @@
-<div class="sidebar" [ngClass]="{'active': isOpen}">
-  <div class="sidebar-header">
-    <h3>Past Transactions</h3>
-    <button type="button" (click)="toggleTransactions()" class="toggle-btn" aria-label="Toggle sidebar">
-      <i class="fa" [ngClass]="isOpen ? 'fa-chevron-left' : 'fa-chevron-right'"></i>
-    </button>
-  </div>
-  <div class="transaction-list" *ngIf="isOpen">
-    <ul>
-      <li *ngFor="let transaction of transactions">
-        <i class="fa fa-money-bill-wave"></i>
-        {{transaction.id}} - {{transaction.amount}} - {{transaction.status}}
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="overlay" *ngIf="isOpen" (click)="toggleTransactions()"></div>
+<p>sidebar works!</p>
