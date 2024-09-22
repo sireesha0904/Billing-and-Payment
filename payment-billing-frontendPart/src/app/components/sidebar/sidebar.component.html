@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+  <h2>Transaction History</h2>
+  <button (click)="toggleHistory()" class="toggle-button">
+    <i class="fas" [ngClass]="showHistory ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+    {{ showHistory ? 'Hide History' : 'Show History' }}
+  </button>
+  <div *ngIf="showHistory">
+    <ul>
+      <li *ngFor="let transaction of transactions">{{ transaction.description }} - {{ transaction.amount }}</li>
+    </ul>
+  </div>
+</div>

@@ -1,1 +1,9 @@
-<p>payment works!</p>
+<div class="payment-container">
+  <h2>Payment Section</h2>
+  <form (ngSubmit)="onSubmit(paymentForm)" #paymentForm="ngForm">  <!-- Pass the form reference -->
+    <input type="text" placeholder="Name" name="name" ngModel required>
+    <input type="email" placeholder="Email" name="email" ngModel required>
+    <input type="number" placeholder="Amount" name="amount" ngModel required>
+    <button type="submit">Pay Now</button>
+  </form>
+</div>

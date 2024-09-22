@@ -1,24 +1,34 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+
+// Define your application routes
+const routes: Routes = [
+  { path: '', redirectTo: '/payment', pathMatch: 'full' },
+  { path: 'payment', component: PaymentComponent },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    PaymentComponent
-  ],
+  declarations: [AppComponent, PaymentComponent, SidebarComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [
-    provideClientHydration()
+    provideHttpClient(withFetch()), // Enable fetch API
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

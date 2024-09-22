@@ -1,0 +1,20 @@
+.sidebar {
+  width: 250px;  /* Set a fixed width */
+  background-color: #f4f4f4;
+  padding: 20px;
+  position: fixed;  /* Make it fixed */
+  height: 100%;  /* Full height */
+  overflow-y: auto;  /* Scrollable if necessary */
+}
+
+.toggle-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.toggle-button i {
+  margin-right: 5px;
+}
