@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RazorpayService } from '../../services/razorpay.service'; // Adjust path if needed
+import { RazorpayService } from '../../services/razorpay.service';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 declare var Razorpay: any;
@@ -21,9 +21,10 @@ export class PaymentComponent {
       const paymentData = {
         name: paymentForm.value.name,
         email: paymentForm.value.email,
-        amount: paymentForm.value.amount,
+        amount: paymentForm.value.amount * 1, // Convert to paise
       };
 
+      // Call the backend to create a Razorpay order
       this.razorpayService.initiatePayment(paymentData).subscribe(
         (response: any) => {
           this.openRazorpay(response);
@@ -42,21 +43,31 @@ export class PaymentComponent {
     const options = {
       amount: orderDetails.amount, // Amount in the smallest currency unit (e.g., paise)
       currency: 'INR',
-      name: 'Your Company Name',
+      name: 'Parking Space Finder',
       description: 'Parking Fee Payment',
       order_id: orderDetails.id, // Razorpay Order ID received from the backend
       handler: (response: any) => {
-        this.verifyPayment(response);
+        this.verifyPayment(response); // Verify the payment on success
       },
       prefill: {
         name: orderDetails.name,
         email: orderDetails.email,
+        contact: orderDetails.contact || '', // Include contact if needed
+      },
+      notes: {
+        description: 'Parking Fee Payment', // Additional information
       },
       theme: {
         color: '#007bff',
       },
+      modal: {
+        ondismiss: function () {
+          alert('Payment cancelled');
+        },
+      },
     };
 
+    // Open Razorpay checkout
     const rzp = new Razorpay(options);
     rzp.open();
   }
@@ -64,7 +75,7 @@ export class PaymentComponent {
   // Method to verify the payment after success
   verifyPayment(paymentResponse: any) {
     this.http
-      .post('YOUR_BACKEND_URL/verify-payment', paymentResponse)
+      .post('http://localhost:8080/api/verify-payment', paymentResponse)
       .subscribe(
         (res) => {
           console.log('Payment successful!', res);
