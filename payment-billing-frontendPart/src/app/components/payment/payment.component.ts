@@ -21,15 +21,16 @@ export class PaymentComponent {
       const paymentData = {
         name: paymentForm.value.name,
         email: paymentForm.value.email,
-        amount: paymentForm.value.amount * 1, // Convert to paise
+        amount: paymentForm.value.amount * 1
       };
 
-      // Call the backend to create a Razorpay order
+      // Call the backend to initiate payment
       this.razorpayService.initiatePayment(paymentData).subscribe(
         (response: any) => {
-          this.openRazorpay(response);
+          this.openRazorpay(response); // Open Razorpay checkout on successful order creation
         },
-        (error) => {
+        (error: any) => {
+          // Add explicit type for error
           console.error('Error initiating payment:', error);
         }
       );
@@ -41,24 +42,32 @@ export class PaymentComponent {
   // Method to open the Razorpay checkout after receiving payment data from the backend
   openRazorpay(orderDetails: any) {
     const options = {
-      amount: orderDetails.amount, // Amount in the smallest currency unit (e.g., paise)
+      amount: orderDetails.amount, // Amount in paise
       currency: 'INR',
       name: 'Parking Space Finder',
       description: 'Parking Fee Payment',
-      order_id: orderDetails.id, // Razorpay Order ID received from the backend
+      order_id: orderDetails.id, // Razorpay Order ID from backend
       handler: (response: any) => {
-        this.verifyPayment(response); // Verify the payment on success
+        this.verifyPayment(response); // Verify payment on success
       },
       prefill: {
         name: orderDetails.name,
         email: orderDetails.email,
-        contact: orderDetails.contact || '', // Include contact if needed
       },
       notes: {
-        description: 'Parking Fee Payment', // Additional information
+        description: 'Parking Fee Payment',
       },
       theme: {
-        color: '#007bff',
+        color: '#CC6CE7',
+      },
+      // Enable UPI and other methods
+      method: {
+        upi: true, // Enable UPI
+        qr: true, // Enable QR Code (Razorpay automatically handles this)
+        card: true, // Enable Cards
+        netbanking: true, // Enable Netbanking
+        wallet: true, // Enable Wallets
+        paylater: true, // Enable PayLater options
       },
       modal: {
         ondismiss: function () {
@@ -67,7 +76,6 @@ export class PaymentComponent {
       },
     };
 
-    // Open Razorpay checkout
     const rzp = new Razorpay(options);
     rzp.open();
   }
@@ -75,7 +83,7 @@ export class PaymentComponent {
   // Method to verify the payment after success
   verifyPayment(paymentResponse: any) {
     this.http
-      .post('http://localhost:8080/api/verify-payment', paymentResponse)
+      .post('http://localhost:8080/api/verify-payment', paymentResponse) // Replace with backend verification API
       .subscribe(
         (res) => {
           console.log('Payment successful!', res);
