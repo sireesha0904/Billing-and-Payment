@@ -1,12 +1,23 @@
-<div class="sidebar">
-  <h2>Transaction History</h2>
-  <button (click)="toggleHistory()" class="toggle-button">
-    <i class="fas" [ngClass]="showHistory ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
-    {{ showHistory ? 'Hide History' : 'Show History' }}
-  </button>
-  <div *ngIf="showHistory">
-    <ul>
-      <li *ngFor="let transaction of transactions">{{ transaction.description }} - {{ transaction.amount }}</li>
-    </ul>
+<div class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <h3><i class="fas fa-history"></i> Transaction History</h3>
   </div>
+
+  <ul class="transaction-list">
+    <li *ngFor="let transaction of transactions">
+      <div class="transaction-item">
+        <span><i class="fas fa-receipt"></i></span>
+        <div class="transaction-details">
+          <p><strong>{{ transaction.name }}</strong></p>
+          <p>{{ transaction.email }}</p>
+          <p>Amount: ₹{{ transaction.amount }}</p>
+          <p>Status: {{ transaction.status }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
+
+<button class="toggle-btn" (click)="toggleSidebar()" aria-label="Toggle sidebar">
+  <i class="fas" [ngClass]="isOpen ? 'fa-chevron-left' : 'fa-chevron-right'"></i>
+</button>

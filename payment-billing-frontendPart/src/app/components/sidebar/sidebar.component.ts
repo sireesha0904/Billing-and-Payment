@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
-
-interface Transaction {
-  description: string;
-  amount: number;
-}
+import { Component, OnInit } from '@angular/core';
+import { RazorpayService } from '../../services/razorpay.service'; // Adjust the path as per your structure
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
-  transactions: Transaction[] = [
-    { description: 'Parking Fee', amount: 100 },
-    { description: 'Late Fee', amount: 50 },
-  ];
-  showHistory = false; // Track visibility of history
+export class SidebarComponent implements OnInit {
+  isOpen = false;
+  transactions: any[] = [];
 
-  toggleHistory() {
-    this.showHistory = !this.showHistory; // Toggle the history visibility
+  constructor(private razorpayService: RazorpayService) {}
+
+  ngOnInit() {
+    this.getTransactions();
+  }
+
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+  }
+
+  getTransactions() {
+    this.razorpayService.getTransactions().subscribe(
+      (response) => {
+        this.transactions = response;
+      },
+      (error) => {
+        console.error('Error fetching transactions:', error);
+      }
+    );
   }
 }
