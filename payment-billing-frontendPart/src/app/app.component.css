@@ -1,14 +1,12 @@
-.app-container {
-  display: flex;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
-
-.sidebar {
-  width: 250px;  /* Adjust width as needed */
-  background-color: #f4f4f4;
-  padding: 20px;
-}
-
-.content {
-  flex: 1;  /* This will take the remaining space */
-  padding: 20px;
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Consistent font across the application */
+    background-color: #ecf0f1; /* Light background */
+    color: #2c3e50; /* Dark text color */
+    line-height: 1.6; /* Improved readability */
 }

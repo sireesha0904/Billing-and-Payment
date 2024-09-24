@@ -1,0 +1,117 @@
+/* General payment form styles */
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center contents */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full height for centering */
+  padding: 30px; /* Increased padding */
+  color: var(--highlight-color);
+}
+
+/* New form container with shadow and border effect */
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Light, semi-transparent background */
+  padding: 30px; /* Padding around the form */
+  border-radius: 12px; /* Rounded corners for the container */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  border: 1px solid var(--primary-color); /* Border for the form container */
+  width: 100%; /* Full width */
+  max-width: 450px; /* Maximum width for larger screens */
+}
+
+/* Heading styles */
+.payment-container h2 {
+  margin-bottom: 20px; /* Space below heading */
+  font-size: 28px; /* Larger font size for headings */
+  color: var(--primary-color); /* Bright color for headings */
+  text-align: center; /* Centered heading */
+}
+
+/* Input container styles */
+.input-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-bottom: 15px; /* Space below each input */
+  border-radius: 8px; /* Rounded corners for inputs */
+  padding: 10px; /* Padding inside input container */
+  transition: border 0.3s, box-shadow 0.3s; /* Smooth border transition */
+  border: 1px solid var(--highlight-color); /* Border for input containers */
+}
+
+/* Hover effect for input containers */
+.input-container:hover {
+  border: 1px solid var(--primary-color); /* Highlight border on hover */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+/* Icon styles */
+.input-container i {
+  color: var(--primary-color); /* Icon color */
+  margin-right: 10px; /* Space between icon and input */
+}
+
+/* Input styles */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  border: none; /* Remove default border */
+  background: transparent; /* Transparent background */
+  color: var(--highlight-color);
+  padding: 10px; /* Padding inside inputs */
+  flex-grow: 1; /* Allow input to take available space */
+  font-size: 16px; /* Consistent font size */
+  transition: border-bottom 0.3s; /* Transition for focus effect */
+}
+
+/* Focus effect for inputs */
+input:focus {
+  outline: none; /* Remove outline on focus */
+  border-bottom: 2px solid var(--primary-color); /* Underline effect on focus */
+}
+
+/* Button Styles */
+button {
+  font-family: var(--font-family-primary);
+  background-color: var(--primary-color); /* Main button color */
+  color: var(--highlight-color);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s; /* Added background-color transition */
+}
+
+/* Hover effect for button */
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  background-color: #9E4CBE; /* Lighter shade on hover */
+}
+
+/* Responsive styles for payment form */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 20px; /* Padding adjustments for smaller screens */
+  }
+
+  .form-container {
+    padding: 20px; /* Padding adjustments for mobile */
+    width: 90%; /* Full width on mobile */
+  }
+
+  .payment-container h2 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .input-container {
+    width: 100%; /* Full width on mobile */
+  }
+
+  button {
+    width: 100%; /* Full width button on mobile */
+    padding: 12px; /* Smaller padding for button */
+    font-size: 16px; /* Consistent font size for buttons */
+  }
+}
