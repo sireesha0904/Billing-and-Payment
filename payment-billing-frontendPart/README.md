@@ -1,27 +1,68 @@
-# PaymentBillingFrontendPart
+# Parking Space Finder and E-Challan Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+## Overview
+This project aims to develop a comprehensive, user-friendly solution for urban parking management, allowing users to securely pay parking fees and manage transactions.
 
-## Development server
+## Setup Instructions
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Backend and Frontend Setup
 
-## Code scaffolding
+1. **Backend Setup:**
+   - Navigate to the backend directory:
+     ```bash
+     cd backend
+     ```
+   - Update the `application.properties` file with your database and Razorpay credentials. Ensure you configure the following properties:
+     ```properties
+     spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+     spring.datasource.username=your_database_username
+     spring.datasource.password=your_database_password
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+     razorpay.key.id=your_razorpay_key_id
+     razorpay.key.secret=your_razorpay_key_secret
+     ```
+   - Run the Spring Boot application:
+     ```bash
+     mvn spring-boot:run
+     ```
 
-## Build
+2. **Frontend Setup:**
+   - Navigate to the frontend directory:
+     ```bash
+     cd ../frontend
+     ```
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+   - Run the Angular application:
+     ```bash
+     ng serve
+     ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## API Endpoints
 
-## Running unit tests
+| Method | Endpoint                              | Description                           |
+|--------|---------------------------------------|---------------------------------------|
+| POST   | `/api/transactions/initiate-payment` | Initiates a payment transaction.      |
+| POST   | `/api/transactions/verify-payment`   | Verifies payment status.              |
+| GET    | `/api/transactions`                   | Retrieves transaction history.        |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Payment Integration
+The Razorpay payment integration allows users to securely pay parking fees. After a successful payment, the system generates a digital receipt and sends it to the user's registered email.
 
-## Running end-to-end tests
+## Usage
+- Users can pay for parking fees via a secure payment gateway.
+- Users can view their transaction history and digital receipts within the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Future Enhancements
+- Integration of UPI payments and QR code generation.
+- Enhanced user notifications for transaction updates.
 
-## Further help
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Acknowledgements
+- Razorpay for the payment gateway.
+- Spring Boot for backend development.
+- Angular for frontend development.
