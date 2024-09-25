@@ -3,7 +3,28 @@
 ## Overview
 This project aims to develop a comprehensive, user-friendly solution for urban parking management, allowing users to securely pay parking fees and manage transactions.
 
-## Setup Instructions
+## Features
+
+- **Secure Payment Processing:** Integrated with Razorpay to facilitate safe and seamless transactions.
+- **Transaction History:** Users can view their past transactions directly from the application.
+- **Digital Receipts:** Automatically generates and sends digital receipts to the user's registered email after a successful payment.
+- **User-Friendly Interface:** Designed for easy navigation and quick access to payment options.
+
+## Tech Stack
+
+- **Frontend:** Angular
+- **Backend:** Spring Boot
+- **Database:** MySQL
+- **Payment Gateway:** Razorpay
+
+## Getting Started
+
+### Prerequisites
+
+- JDK 11 or higher
+- Node.js and npm
+- MySQL Server
+- Razorpay account
 
 ### Backend and Frontend Setup
 
@@ -66,3 +87,10 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - Razorpay for the payment gateway.
 - Spring Boot for backend development.
 - Angular for frontend development.
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <your-repo-url>
+   
