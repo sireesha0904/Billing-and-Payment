@@ -1,117 +1,209 @@
+:root {
+  --primary-color: #8e44ad; /* Primary purple color */
+  --highlight-color: #fff; /* Highlight color */
+}
+
 /* General payment form styles */
 .payment-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center contents */
-  justify-content: center; /* Center vertically */
-  height: 100vh; /* Full height for centering */
-  padding: 30px; /* Increased padding */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 30px;
   color: var(--highlight-color);
 }
 
-/* New form container with shadow and border effect */
-.form-container {
-  background-color: rgba(255, 255, 255, 0.9); /* Light, semi-transparent background */
-  padding: 30px; /* Padding around the form */
-  border-radius: 12px; /* Rounded corners for the container */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
-  border: 1px solid var(--primary-color); /* Border for the form container */
-  width: 100%; /* Full width */
-  max-width: 450px; /* Maximum width for larger screens */
+/* Enhanced Heading Styles */
+.payment-container h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  background: linear-gradient(135deg, #a445b2, #d41872); /* Gradient color for text */
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text; /* For Safari */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 1s ease-out;
 }
 
-/* Heading styles */
-.payment-container h2 {
-  margin-bottom: 20px; /* Space below heading */
-  font-size: 28px; /* Larger font size for headings */
-  color: var(--primary-color); /* Bright color for headings */
-  text-align: center; /* Centered heading */
+/* Animated underline effect */
+.payment-container h2::before,
+.payment-container h2::after {
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 50px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371); /* Gradient underline */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s ease;
+}
+
+/* Left decorative line */
+.payment-container h2::before {
+  width: 30px;
+  left: 20%;
+  transform: translateX(0);
+}
+
+/* Right decorative line */
+.payment-container h2::after {
+  width: 30px;
+  left: 80%;
+  transform: translateX(0);
+}
+
+/* Hover effect on heading */
+.payment-container h2:hover::before,
+.payment-container h2:hover::after {
+  width: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Keyframe animation for slideDown effect */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Form container styles */
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0,0, 0, 0.3);
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  max-width: 450px;
 }
 
 /* Input container styles */
 .input-container {
   display: flex;
-  align-items: center; /* Align items vertically */
-  margin-bottom: 15px; /* Space below each input */
-  border-radius: 8px; /* Rounded corners for inputs */
-  padding: 10px; /* Padding inside input container */
-  transition: border 0.3s, box-shadow 0.3s; /* Smooth border transition */
-  border: 1px solid var(--highlight-color); /* Border for input containers */
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  padding: 10px;
+  transition: border 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--highlight-color);
 }
 
 /* Hover effect for input containers */
 .input-container:hover {
-  border: 1px solid var(--primary-color); /* Highlight border on hover */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Icon styles */
 .input-container i {
-  color: var(--primary-color); /* Icon color */
-  margin-right: 10px; /* Space between icon and input */
+  color: var(--primary-color);
+  margin-right: 10px;
 }
 
 /* Input styles */
 input[type="text"],
 input[type="email"],
 input[type="number"] {
-  border: none; /* Remove default border */
-  background: transparent; /* Transparent background */
-  color: var(--highlight-color);
-  padding: 10px; /* Padding inside inputs */
-  flex-grow: 1; /* Allow input to take available space */
-  font-size: 16px; /* Consistent font size */
-  transition: border-bottom 0.3s; /* Transition for focus effect */
+  border: none;
+  background: transparent;
+  color: var(--primary-color);
+  padding: 10px;
+  flex-grow: 1;
+  font-size: 16px;
+  transition: border-bottom 0.3s;
 }
 
 /* Focus effect for inputs */
 input:focus {
-  outline: none; /* Remove outline on focus */
-  border-bottom: 2px solid var(--primary-color); /* Underline effect on focus */
+  outline: none;
+  border-bottom: 2px solid var(--primary-color);
 }
 
-/* Button Styles */
+/* Submit Button */
 button {
-  font-family: var(--font-family-primary);
-  background-color: var(--primary-color); /* Main button color */
-  color: var(--highlight-color);
+  width: 100%;
+  padding: 15px;
   border: none;
-  padding: 15px 30px;
   border-radius: 50px;
+  background: linear-gradient(135deg, #4b0082, #9b59b6);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s; /* Added background-color transition */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* Hover effect for button */
+/* Button hover effects */
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-  background-color: #9E4CBE; /* Lighter shade on hover */
+  background: linear-gradient(135deg, #9b59b6, #4b0082);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Light animation effect on button */
+button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  animation: lightEffect 5s linear infinite;
+  z-index: -1;
+}
+
+/* Animation keyframe for light effect */
+@keyframes lightEffect {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 /* Responsive styles for payment form */
 @media (max-width: 768px) {
   .payment-container {
-    padding: 20px; /* Padding adjustments for smaller screens */
+    padding: 20px;
   }
 
   .form-container {
-    padding: 20px; /* Padding adjustments for mobile */
-    width: 90%; /* Full width on mobile */
+    padding: 20px;
+    width: 90%;
   }
 
   .payment-container h2 {
-    font-size: 24px; /* Smaller heading on mobile */
+    font-size: 24px;
   }
 
   .input-container {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
   }
 
   button {
-    width: 100%; /* Full width button on mobile */
-    padding: 12px; /* Smaller padding for button */
-    font-size: 16px; /* Consistent font size for buttons */
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
   }
 }
+
