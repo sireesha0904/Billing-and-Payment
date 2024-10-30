@@ -1,11 +1,16 @@
+// razorpay.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Transaction {
+  id: number;         // Added id field
   name: string;
   email: string;
   amount: number;
+  status: string;     // Added status field
+  createdAt: string;  // Added createdAt field
 }
 
 @Injectable({
