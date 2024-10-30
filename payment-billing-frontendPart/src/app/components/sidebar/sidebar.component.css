@@ -1,16 +1,17 @@
 /* General Sidebar Styles */
 .sidebar {
   position: fixed;
-  top: 60px; /* Adjusted to sit below navbar */
+  top: 60px;
   left: 0;
-  width: 280px;
+  width: 300px;
   height: calc(100% - 60px);
-  background: linear-gradient(180deg, #a445b2, #d41872, #ff5f6d);
+  background: linear-gradient(145deg, #a445b2, #4b0082, #d41872);
   overflow-y: auto;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s cubic-bezier(0.42, 0, 0.58, 1), box-shadow 0.4s;
   transform: translateX(-100%);
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  border-radius: 0 20px 20px 0;
 }
 
 .sidebar.open {
@@ -19,18 +20,25 @@
 
 /* Sidebar Header */
 .sidebar-header {
-  padding: 15px;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-header h3 {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
+  color: #ffebcd;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.sidebar-header h3:hover {
   color: #ffc371;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Transaction List */
@@ -38,68 +46,69 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: 'Arial', sans-serif;
 }
 
 .transaction-item {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  transition: background 0.2s ease;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 .transaction-item:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.02);
+  transform: translateX(5px);
 }
 
 .transaction-item span i {
-  font-size: 1.5em;
+  font-size: 1.6em;
   color: #ffc371;
-  margin-right: 10px;
-  transition: transform 0.3s;
+  margin-right: 12px;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .transaction-item:hover span i {
-  transform: rotate(15deg);
+  color: #ffebcd;
+  transform: rotate(20deg);
 }
 
 /* Transaction Details */
 .transaction-details p {
-  margin: 2px 0;
-  color: #ffebcd;
-  font-size: 0.9em;
+  margin: 3px 0;
+  color: #f0e6f6;
+  font-size: 0.95em;
 }
 
 .transaction-details p:first-child {
   font-weight: bold;
-  color: #fff;
-}
-
-.transaction-details p span {
-  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.05em;
 }
 
 /* Toggle Button */
 .toggle-btn {
   position: fixed;
   top: 70px;
-  left: 280px;
-  width: 35px;
-  height: 35px;
-  background: #4b0082;
+  left: 300px;
+  width: 40px;
+  height: 40px;
+  background: #6a0dad;
   color: #ffc371;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   z-index: 11;
-  transition: background 0.2s;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-btn:hover {
-  background: #6a0dad;
+  background: #a445b2;
+  transform: scale(1.1);
 }
 
 .toggle-btn i {
