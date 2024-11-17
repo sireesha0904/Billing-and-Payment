@@ -4,58 +4,64 @@
   align-items: center;
   padding: 20px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #500e50, #342957); /* Updated gradient with purple */
   font-family: 'Arial', sans-serif;
+  color: #fff;
 }
 
 .payment-container h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #635985;
+  color: #a58fd6;
   animation: fadeIn 1s ease-in-out;
 }
 
 .form-container {
-  border-radius: 8px;
-  padding: 30px;
+  background: rgba(125, 91, 166, 0.2); /* Updated transparency color to match purple */
+  border-radius: 15px;
+  padding: 40px;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(125, 91, 166, 0.4); /* Adjusted shadow with purple tint */
   border: 1px solid #635985;
   animation: slideIn 0.8s ease-out;
+  backdrop-filter: blur(10px);
 }
 
 .form-container form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .input-container {
   position: relative;
   display: flex;
   align-items: center;
-  border: 1px solid #635985;
-  border-radius: 5px;
+  background: #443c68;
+  border: 2px solid #635985;
+  border-radius: 10px;
   padding: 10px;
   transition: all 0.3s ease;
 }
 
 .input-container:hover {
-  border-color: #786bad;
-  box-shadow: 0 0 8px rgba(99, 89, 133, 0.5);
+  border-color: #7d5ba6; /* Purple highlight on hover */
+  box-shadow: 0 0 10px rgba(165, 143, 214, 0.5);
 }
 
 .input-container i {
-  color: #635985;
+  color: #a58fd6;
   font-size: 1.2rem;
   margin-right: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .input-container:hover i {
   transform: scale(1.1);
+  color: #7d5ba6; /* Icon color changes to purple on hover */
 }
 
 .input-container input {
@@ -63,35 +69,35 @@
   outline: none;
   width: 100%;
   font-size: 1rem;
-  padding: 5px;
+  padding: 5px 10px;
   background: transparent;
-  color: #333;
+  color: #fff;
   font-family: 'Arial', sans-serif;
 }
 
 .input-container input::placeholder {
-  color: #888;
+  color: #b0a4c6;
 }
 
 .input-container input:focus::placeholder {
   color: transparent;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 button[type="submit"] {
-  border: 1px solid #635985;
-  border-radius: 5px;
-  padding: 12px 20px;
-  color: #635985;
-  font-size: 1rem;
+  border: 2px solid #635985;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  background: transparent;
+  background: linear-gradient(135deg, #635985, #7d5ba6); /* Violet to purple gradient */
+  color: #fff;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 button[type="submit"]::before {
@@ -101,7 +107,7 @@ button[type="submit"]::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(99, 89, 133, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   transition: all 0.4s ease;
   z-index: 0;
 }
@@ -112,7 +118,7 @@ button[type="submit"]:hover::before {
 
 button[type="submit"]:hover {
   color: #443c68;
-  border-color: #786bad;
+  border-color: #7d5ba6; /* Purple hover border */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -144,19 +150,15 @@ button[type="submit"]:active {
 
 @media (max-width: 480px) {
   .payment-container h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .form-container {
-    padding: 20px;
-  }
-
-  .input-container {
-    padding: 8px;
+    padding: 30px;
   }
 
   button[type="submit"] {
     padding: 10px 15px;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
