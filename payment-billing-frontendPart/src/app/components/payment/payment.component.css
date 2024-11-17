@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center the content vertically */
   padding: 20px;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure the container takes up full height */
   background: linear-gradient(135deg, #500e50, #342957); /* Updated gradient with purple */
   font-family: 'Arial', sans-serif;
   color: #fff;
