@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  min-height: 100vh; /* Ensure the container takes up full height */
-  background: linear-gradient(135deg, #500e50, #342957)
+  min-height: 100vh;
+  background: linear-gradient(135deg, #500e50, #342957);
   font-family: 'Arial', sans-serif;
   color: #fff;
 }
@@ -20,12 +20,12 @@
 }
 
 .form-container {
-  background: rgba(125, 91, 166, 0.2); /* Updated transparency color to match purple */
+  background: rgba(125, 91, 166, 0.2);
   border-radius: 15px;
   padding: 40px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 10px 30px rgba(125, 91, 166, 0.4); /* Adjusted shadow with purple tint */
+  box-shadow: 0 10px 30px rgba(125, 91, 166, 0.4);
   border: 1px solid #635985;
   animation: slideIn 0.8s ease-out;
   backdrop-filter: blur(10px);
@@ -49,7 +49,7 @@
 }
 
 .input-container:hover {
-  border-color: #7d5ba6; /* Purple highlight on hover */
+  border-color: #7d5ba6;
   box-shadow: 0 0 10px rgba(165, 143, 214, 0.5);
 }
 
@@ -62,7 +62,7 @@
 
 .input-container:hover i {
   transform: scale(1.1);
-  color: #7d5ba6; /* Icon color changes to purple on hover */
+  color: #7d5ba6;
 }
 
 .input-container input {
@@ -94,8 +94,7 @@ button[type="submit"] {
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
-  background: linear-gradient(135deg, #635985, #7d5ba6); /* Violet to purple gradient */
-  color: #fff;
+  background: linear-gradient(135deg, #635985, #7d5ba6);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -119,7 +118,7 @@ button[type="submit"]:hover::before {
 
 button[type="submit"]:hover {
   color: #443c68;
-  border-color: #7d5ba6; /* Purple hover border */
+  border-color: #7d5ba6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
