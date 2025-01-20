@@ -19,9 +19,10 @@ export class PaymentComponent {
   onSubmit(paymentForm: NgForm) {
     if (paymentForm.valid) {
       const paymentData = {
+        tokenId: paymentForm.value.tokenId,
         name: paymentForm.value.name,
         email: paymentForm.value.email,
-        amount: paymentForm.value.amount * 1
+        amount: paymentForm.value.amount * 1,
       };
 
       // Call the backend to initiate payment
