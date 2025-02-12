@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RazorpayService } from '../../services/razorpay.service'; // Adjust the path as per your structure
+import { RazorpayService } from '../../services/razorpay.service'; e
 
 @Component({
   selector: 'app-sidebar',
